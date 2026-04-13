@@ -1,1 +1,23 @@
-
+name: FirstWorkflow
+on:
+  push:
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+jobs:
+  check-all-good:
+    env:
+      ACTIONS_STEP_DEBUG: true
+      ACTIONS_RUNNER_DEBUG: true
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: js13k-2021
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v5
+      - run: npm cache clean --force
+      - run: npm install
+      # - run: npm audit fix --force
+      - run: npx eslint . --fix
