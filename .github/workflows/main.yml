@@ -15,8 +15,8 @@ jobs:
       run:
         working-directory: js13k-2021
     steps:
-      - uses: actions/checkout@v6
-      - uses: actions/setup-node@v5
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
       - run: npm cache clean --force
       - run: npm install
       # - run: npm audit fix --force
