@@ -75,7 +75,7 @@ test("Personnel 5 : randFloat ne rend pas une valeur inférieur au minimum", () 
 
 // ? Tests fonctionnels
 
-test("Verification de la fonctionnalité du score : ", () => {
+test("Verification de la fonctionnalité du score", () => {
   expect((testScore.value = 0));
   expect((testScore.value += 100));
   expect(testScore.value).toBe(100);
@@ -86,4 +86,18 @@ test("Verification de la fonctionnalité lié à la vie", () => {
   const damage = 20;
   healthManager.value -= damage;
   expect(healthManager.value).toBe(80);
+});
+
+test("Verification de l'affichage de l'écran de mort", () => {
+  document.body.innerHTML = '<div class="e" hidden></div>';
+  healthManager.value = 10;
+
+  const takeDamage = (damage) => {
+    healthManager.value -= damage;
+    if (healthManager.value <= 0) {
+      document.querySelector(".e").hidden = false;
+    }
+  };
+  takeDamage(15);
+  expect(document.querySelector(".e").hidden).toBe(false);
 });
