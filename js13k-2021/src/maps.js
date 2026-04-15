@@ -86,6 +86,8 @@ var _q0 = quat_create();
 var _v0 = vec3_create();
 var _v1 = vec3_create();
 
+export const testScore = { value: 0 };
+export const healthManager = { value: 100 };
 export var map0 = (gl, scene, camera) => {
   var map = object3d_create();
   object3d_add(scene, map);
@@ -123,8 +125,8 @@ export var map0 = (gl, scene, camera) => {
   var player = player_create(playerMesh, playerPhysics);
   player.scene = map;
 
-  var health = 100;
-  var score = 0;
+  // ! var health = 100;
+  var testScore = 0;
 
   var updateShadowCamera = () => {
     var offset = 512;
@@ -367,8 +369,8 @@ export var map0 = (gl, scene, camera) => {
   };
 
   var takeDamage = (damage = 2) => {
-    health -= damage;
-    if (health <= 0) {
+    healthManager -= damage;
+    if (healthManager.value <= 0) {
       document.exitPointerLock();
       document.querySelector('.e').hidden = false;
     }
@@ -747,7 +749,7 @@ export var map0 = (gl, scene, camera) => {
 
       updateShadowCamera();
 
-      health = clamp(health + 1 * dt, 0, 100);
+      healthManager.value = clamp(healthManager.value + 1 * dt, 0, 100);
       document.querySelector('.h').textContent = Math.round(health);
       document.querySelector('.s').textContent = score;
 
@@ -805,8 +807,8 @@ export var map0 = (gl, scene, camera) => {
           if (entity === playerMesh) return false;
           createExplosion(bullet.position);
           object3d_remove(map, bullet);
-          if (entity.isPhantom) score += 100;
-          if (entity.isScanner) score += 50;
+          if (entity.isPhantom) testScore += 100;
+          if (entity.isScanner) testScore += 50;
         };
       }
 
