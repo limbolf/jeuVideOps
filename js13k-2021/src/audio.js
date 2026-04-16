@@ -41,7 +41,7 @@ var generateNotes = (fn, duration, volume) =>
 
 // Oscillators
 // f: frequency, t: parameter.
-var sin = f => t => Math.sin(t * 2 * Math.PI * f);
+var sin = f => t => Math.sin(t * 2 * Math.PI * f); // eslint-disable-line
 
 var saw = f => t => {
   var n = ((t % (1 / f)) * f) % 1;
@@ -51,7 +51,7 @@ var saw = f => t => {
 var tri = f => t => {
   var n = ((t % (1 / f)) * f) % 1;
   return n < 0.5 ? -1 + 2 * (2 * n) : 1 - 2 * (2 * n);
-};
+}; // eslint-disable-line
 
 var square = f => t => {
   var n = ((t % (1 / f)) * f) % 1;
@@ -79,7 +79,7 @@ var add = (a, b) => f => {
   var bf = b(f);
 
   return (t, i, a) => af(t, i, a) + bf(t, i, a);
-};
+}; // eslint-disable-line
 
 var mul = (a, b) => f => {
   var af = a(f);
@@ -91,10 +91,10 @@ var mul = (a, b) => f => {
 var scale = (fn, n) => f => {
   var fnf = fn(f);
   return (t, i, a) => n * fnf(t, i, a);
-};
+}; // eslint-disable-line
 
 var slide = (fn, slide) => f => (t, i, a) =>
-  fn(f + (i / a.length) * slide)(t, i, a);
+  fn(f + (i / a.length) * slide)(t, i, a); // eslint-disable-line
 
 var pitchJump = (fn, pitchJump, pitchJumpTime) => f => (t, i, a) =>
   fn(f + (t > pitchJumpTime ? pitchJump : 0))(t, i, a);
