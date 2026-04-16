@@ -100,7 +100,7 @@ var slide = // eslint-disable-line
     t,
     i,
   ) =>
-    fn(f + (i / a.length) * slide)(t, i, a);
+    fn(f + (i / a.length) * slide)(t, i, a); // eslint-disable-line
 
 var pitchJump = (fn, pitchJump, pitchJumpTime) => f => (t, i, a) =>
   fn(f + (t > pitchJumpTime ? pitchJump : 0))(t, i, a);
