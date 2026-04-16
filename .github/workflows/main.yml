@@ -6,7 +6,7 @@ on:
       - main
   workflow_dispatch:
 jobs:
-  check-all-good:
+  eslint:
     env:
       ACTIONS_STEP_DEBUG: true
       ACTIONS_RUNNER_DEBUG: true
@@ -17,7 +17,14 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
-      - run: npm cache clean --force
       - run: npm install
-      # - run: npm audit fix --force
       - run: npx eslint . --fix
+  test:
+    # ? Attend la fin de eslint pour lancer ce test
+    needs: eslint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+      - run: npm install
+      - run: npm test
