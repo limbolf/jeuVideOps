@@ -48,8 +48,7 @@ var saw = f => t => {
   return -1 + 2 * n;
 };
 
-var tri = f => t => {
-  // eslint-disable-line
+var tri = f => t => { // eslint-disable-line
   var n = ((t % (1 / f)) * f) % 1;
   return n < 0.5 ? -1 + 2 * (2 * n) : 1 - 2 * (2 * n);
 };
@@ -75,8 +74,7 @@ var noise = () => {
 };
 
 // Operators.
-var add = (a, b) => f => {
-  // eslint-disable-line
+var add = (a, b) => f => { // eslint-disable-line
   var af = a(f);
   var bf = b(f);
 
@@ -90,19 +88,17 @@ var mul = (a, b) => f => {
   return (t, i, a) => af(t, i, a) * bf(t, i, a);
 };
 
-var scale = (fn, n) => f => {
-  // eslint-disable-line
+var scale = (fn, n) => f => { // eslint-disable-line
   var fnf = fn(f);
   return (t, i, a) => n * fnf(t, i, a);
 };
 
-var slide =
+var slide = // eslint-disable-line
   (fn, slide) =>
   f =>
   (
     t,
     i,
-    a, // eslint-disable-line
   ) =>
     fn(f + (i / a.length) * slide)(t, i, a);
 
