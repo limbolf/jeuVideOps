@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jeux VideOps</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: monospace;
+      background: #0a0a1a;
+      color: #e0e0ff;
+      min-height: 100vh;
+    }
+
+    header {
+      text-align: center;
+      padding: 3rem 1rem 2rem;
+      border-bottom: 1px solid #2a2a4a;
+    }
+
+    header h1 {
+      font-size: 3rem;
+      color: #7b7bff;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+    }
+
+    header p {
+      margin-top: 0.5rem;
+      color: #8888aa;
+      font-size: 1rem;
+    }
+
+    .games {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+      padding: 3rem 2rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .card {
+      background: #12122a;
+      border: 1px solid #2a2a5a;
+      border-radius: 8px;
+      width: 380px;
+      overflow: hidden;
+      transition: transform 0.2s, border-color 0.2s;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: #7b7bff;
+    }
+
+    .card-banner {
+      height: 160px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 5rem;
+    }
+
+    .card-banner.invaders { background: linear-gradient(135deg, #0a0a2a, #1a1a4a); }
+    .card-banner.spaceword { background: linear-gradient(135deg, #0a1a0a, #1a3a1a); }
+
+    .card-body { padding: 1.5rem; }
+
+    .card-body h2 {
+      font-size: 1.3rem;
+      color: #a0a0ff;
+      margin-bottom: 0.5rem;
+    }
+
+    .card-body p {
+      color: #8888aa;
+      font-size: 0.9rem;
+      line-height: 1.5;
+      margin-bottom: 1.2rem;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.6rem 1.5rem;
+      background: #7b7bff;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 4px;
+      font-family: inherit;
+      font-size: 0.9rem;
+      transition: background 0.2s;
+    }
+
+    .btn:hover { background: #5555dd; }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      color: #44445a;
+      font-size: 0.8rem;
+      border-top: 1px solid #1a1a3a;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Jeux VideoPS</h1>
+    <p>Une plateforme de jeux rétro — js13kgames 2021</p>
+  </header>
+
+  <main class="games">
+
+    <div class="card">
+      <div class="card-banner invaders">🚀</div>
+      <div class="card-body">
+        <h2>Two ships passing in the night</h2>
+        <p>
+          Méler esquive et précision dans l'espace afin de détruire les différents fantômes.
+        </p>
+        <a class="btn" href="http://localhost:8080">Jouer</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-banner spaceword">🌌</div>
+      <div class="card-body">
+        <h2>SpaceWord</h2> <br>
+        <p>
+          Taper au plus vites les mots donnés tout en esquivant les vaisseaux venant vers vous.
+        </p> <br>
+        <a class="btn" href="http://localhost:8081">Jouer</a>
+      </div>
+    </div>
+
+  </main>
+
+  <footer>
+    Jeux VideoPS &mdash; Epitech 2025 &mdash; Pipeline CI/CD avec GitHub Actions
+  </footer>
+
+</body>
+</html>
