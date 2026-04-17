@@ -28,3 +28,8 @@ jobs:
       - uses: actions/setup-node@v4
       - run: npm install
       - run: npm test
+
+  building-images:
+    runs-on: ubuntu-latest
+    steps:
+      - 
