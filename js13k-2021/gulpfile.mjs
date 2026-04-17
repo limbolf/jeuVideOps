@@ -1,5 +1,3 @@
-/* eslint-disable func-style, no-restricted-syntax */
-
 'use strict';
 
 import del from 'del';
