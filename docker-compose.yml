@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  spaceship:
+    build: ./js13k-2021
+    ports:
+      - "8080:80"
+  
+  spaceword:
+    build: ./js13k-spaceWord
+    ports:
+      - "8081:80"
