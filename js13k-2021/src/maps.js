@@ -126,7 +126,6 @@ export var map0 = (gl, scene, camera) => {
   player.scene = map;
 
   // ! var health = 100;
-  var testScore = 0;
 
   var updateShadowCamera = () => {
     var offset = 512;
