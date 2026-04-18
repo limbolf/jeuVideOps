@@ -30,7 +30,7 @@ jobs:
       - run: npm install
       - run: npm test
       - name: Resume
-        run: 
+        run: |
           echo "::notice title=Validation Qualité Résultats des Tests :" >> $GITHUB_STEP_SUMMARY
 
   audit:
