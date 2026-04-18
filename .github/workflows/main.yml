@@ -16,6 +16,10 @@ jobs:
       - uses: actions/setup-node@v4
       - run: npm install
       - run: npx eslint . --fix
+      - name: Resume
+        run:
+          echo "Les fichiers JS respectent les normes."
+
   test:
     # ? Attend la fin de eslint pour lancer ce test
     needs: eslint
@@ -28,7 +32,6 @@ jobs:
       - name: Resume
         run: 
           echo "Résultats des Tests :" >> $GITHUB_STEP_SUMMARY
-          echo "Tous les tests sont fonctionnels"
 
   audit:
     needs: eslint
@@ -38,6 +41,9 @@ jobs:
       - uses: actions/setup-node@v4
       - run: npm install
       - run: npm audit
+      - name: Resume
+        run: 
+          echo:'Listes des dépendances '
 
   build-docker:
     needs: [test, audit]
