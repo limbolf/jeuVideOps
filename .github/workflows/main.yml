@@ -11,9 +11,6 @@ jobs:
       ACTIONS_STEP_DEBUG: true
       ACTIONS_RUNNER_DEBUG: true
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: js13k-2021
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -38,12 +35,10 @@ jobs:
       - run: npm install
       - run: npm audit
 
-  lighthouse:
+  build-docker:
+    needs: [test, audit]
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4      
-      - name: Audit Lighthouse
-        uses: treosh/lighthouse-ci-action@v12
-        with:
-          configPath: './.lighthouse.js'
-          uploadArtifacts: true 
+      - uses: actions/checkout@v4
+      - name: Build Images Docker 
+        run: docker compose build 
