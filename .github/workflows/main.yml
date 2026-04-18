@@ -31,7 +31,7 @@ jobs:
       - run: npm test
       - name: Resume
         run: 
-          echo "Résultats des Tests :" >> $GITHUB_STEP_SUMMARY
+          echo "::notice title=Validation Qualité Résultats des Tests :" >> $GITHUB_STEP_SUMMARY
 
   audit:
     needs: eslint
@@ -41,9 +41,6 @@ jobs:
       - uses: actions/setup-node@v4
       - run: npm install
       - run: npm audit
-      - name: Resume
-        run: 
-          echo:'Listes des dépendances '
 
   build-docker:
     needs: [test, audit]
