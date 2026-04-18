@@ -25,6 +25,10 @@ jobs:
       - uses: actions/setup-node@v4
       - run: npm install
       - run: npm test
+      - name: Resume
+        run: 
+          echo "Résultats des Tests :" >> $GITHUB_STEP_SUMMARY
+          echo "Tous les tests sont fonctionnels"
 
   audit:
     needs: eslint
